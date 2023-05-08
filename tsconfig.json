@@ -1,0 +1,22 @@
+{
+    "compilerOptions": {
+        "module":"CommonJS", /* Definimos tipo que tipo de código compilado obtendremos */
+        "esModuleInterop": true, /* Esto es para asegurar que nuestro JS tiene soporte según el TS compilando */
+        "resolveJsonModule": true, /* Investigar esta opción, nos permite interpretar archivos JSON */
+        "moduleResolution": "node", /* Indicamos de forma explícita la verificación de TS en node*/
+        "target": "ES2020",  /* Definimos la estandarización de ECMA*/
+        "noImplicitAny": true, /* Esta opción deshabilita la recomendación tipo any */
+        "sourceMap": true, /* Podamos habilitar la definición de ubicación de nuestros archivos JS */
+        "experimentalDecorators": true,
+        "emitDecoratorMetadata": true,
+        "strict": false,
+        "baseUrl": "./", /* Definimos donde quedará el código transpilado */
+        "outDir": "./build" /* Definimos donde quedará nuestro código compilado JS */
+    },
+    "exclude": [
+        "node_modules"
+    ],
+    "include": [
+        "src/**/*.ts"
+    ]
+}
