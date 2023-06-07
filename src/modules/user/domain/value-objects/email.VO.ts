@@ -1,8 +1,12 @@
+import { UserEmailInvalidException } from '../exceptions/user.exception'
 import { ValueObject } from './vo.class'
+import { err, ok, Result } from 'neverthrow'
 
 interface EmailProps {
   value: string
 }
+
+export type EmailResult = Result<EmailVO, UserEmailInvalidException>
 
 export class EmailVO extends ValueObject<EmailProps> {
   private constructor(props: EmailProps) {
@@ -13,12 +17,12 @@ export class EmailVO extends ValueObject<EmailProps> {
     return this.props.value
   }
 
-  static create(email: string): EmailVO {
+  static create(email: string): EmailResult {
     if (!this.validateEmail(email)) {
-      throw new Error('Invalid email')
+      return err(new UserEmailInvalidException())
     }
 
-    return new EmailVO({ value: email })
+    return ok(new EmailVO({ value: email }))
   }
 
   private static validateEmail(email: string): boolean {
