@@ -2,6 +2,7 @@ import express, { Application } from 'express'
 import routerHealth from './helpers/health'
 import HandlerErrors from './helpers/errors'
 import userRoutes from './modules/user/interfaces/http/user.routes'
+import channelRoutes from './modules/channel/interfaces/http/channel.routes'
 import helmet from 'helmet'
 import hpp from 'hpp'
 import cors from 'cors'
@@ -39,6 +40,7 @@ class App {
   }
   mountRoutes() {
     this.expressApp.use('/user', userRoutes)
+    this.expressApp.use('/channel', channelRoutes)
   }
 }
 
