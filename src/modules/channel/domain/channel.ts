@@ -9,7 +9,7 @@ interface ChannelOptional {
   readonly guid: string
 }
 
-interface ChannelUpdate {
+export interface ChannelUpdate {
   name: string
 }
 
