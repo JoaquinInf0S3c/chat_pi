@@ -1,0 +1,15 @@
+export enum DomainExceptionCode {
+  DEFAULT_DOMAIN_EXCEPTION = 'DEFAULT_DOMAIN_EXCEPTION',
+  MESSAGE_CONTENT_REQUIRED = 'MESSAGE_CONTENT_REQUIRED',
+  MESSAGE_SENDER_REQUIRED = 'MESSAGE_SENDER_REQUIRED',
+  MESSAGE_RECEIVER_REQUIRED = 'MESSAGE_RECEIVER_REQUIRED',
+  MESSAGE_NOT_FOUND = 'MESSAGE_NOT_FOUND',
+  MESSAGE_GUID_INVALID = 'MESSAGE_GUID_INVALID',
+}
+
+export abstract class DomainException extends Error {
+  constructor(message?: string) {
+    super(message)
+    this.name = DomainExceptionCode.DEFAULT_DOMAIN_EXCEPTION
+  }
+}
